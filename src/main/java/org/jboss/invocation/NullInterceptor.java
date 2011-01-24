@@ -26,7 +26,7 @@ import java.io.Serializable;
 
 import javax.interceptor.InvocationContext;
 
-import static org.jboss.invocation.InvocationLogger.log;
+import static org.jboss.invocation.InvocationMessages.msg;
 
 /**
  * @author <a href="mailto:david.lloyd@redhat.com">David M. Lloyd</a>
@@ -42,7 +42,7 @@ class NullInterceptor implements Interceptor, Serializable {
         try {
             return context.proceed();
         } catch (Exception e) {
-            throw log.invocationException(e);
+            throw msg.invocationException(e);
         }
     }
 

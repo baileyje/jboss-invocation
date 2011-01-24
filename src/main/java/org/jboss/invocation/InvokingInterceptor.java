@@ -28,7 +28,7 @@ import java.lang.reflect.Method;
 
 import javax.interceptor.InvocationContext;
 
-import static org.jboss.invocation.InvocationLogger.log;
+import static org.jboss.invocation.InvocationMessages.msg;
 
 /**
 * @author <a href="mailto:david.lloyd@redhat.com">David M. Lloyd</a>
@@ -50,9 +50,9 @@ class InvokingInterceptor implements Interceptor, Serializable {
         } catch (IllegalAccessException e) {
             final IllegalAccessError n = new IllegalAccessError(e.getMessage());
             n.setStackTrace(e.getStackTrace());
-            throw log.invocationException(n);
+            throw msg.invocationException(n);
         } catch (InvocationTargetException e) {
-            throw log.invocationException(e.getCause());
+            throw msg.invocationException(e.getCause());
         }
     }
 
